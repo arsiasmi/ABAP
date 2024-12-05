@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition'
+define service Zcl_order_cds_sd {
+  expose zcl_order_cds;
+}

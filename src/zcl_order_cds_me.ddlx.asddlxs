@@ -1,0 +1,45 @@
+@Metadata.layer: #CORE
+annotate view zcl_order_cds with
+{
+  @UI.facet: [{ purpose: #STANDARD , label: 'Order ID', type: #IDENTIFICATION_REFERENCE , position: 10 }]
+  @UI.selectionField: [{ position: 10 }]
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  @EndUserText.label: 'Order ID'
+  so_id;
+  @UI.selectionField: [{ position: 20 }]
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  @EndUserText.label: 'Description'
+  name;
+  @UI.selectionField: [{ position: 30 }]
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  @EndUserText.label: 'Category'
+  doc_cat;
+//  @UI.selectionField: [{ position: 40 }]
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  @EndUserText.label: 'Type'
+  doc_type;
+//  @UI.selectionField: [{ position: 50 }]
+  @UI.lineItem: [{ position:50 }]
+  @UI.identification: [{ position: 50 }]
+  @EndUserText.label: 'Amount'
+  amount;
+//  @UI.selectionField: [{ position: 60 }]
+  @UI.lineItem: [{ position: 60 }]
+  @UI.identification: [{ position: 60 }]
+  @EndUserText.label: 'Currency'
+  d_currency;
+//  @UI.selectionField: [{ position: 70 }]
+  @UI.lineItem: [{ position: 70 }]
+  @UI.identification: [{ position: 70 }]
+  @EndUserText.label: 'Created By'
+  created_by;
+//  @UI.selectionField: [{ position: 80 }]
+  @UI.lineItem: [{ position: 80 }]
+  @UI.identification: [{ position: 80 }]
+  @EndUserText.label: 'Created On'
+  created_on;
+}

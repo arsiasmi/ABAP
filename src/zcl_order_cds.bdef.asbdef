@@ -1,0 +1,18 @@
+managed implementation in class zbp_cl_order_cds unique;
+//strict ( 2 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+with draft;
+define behavior for zcl_order_cds //alias ORDER
+persistent table zcl_order_t
+draft table zcl_order_t_d
+lock master
+total etag last_changed_at
+//authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) so_id;
+  //  field ( readonly ) created_by;
+  //  field ( readonly ) created_on;
+}
