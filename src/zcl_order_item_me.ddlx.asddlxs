@@ -1,0 +1,56 @@
+@Metadata.layer: #CUSTOMER
+annotate view ZCL_ORDER_ITEM_CDS_01 with
+{
+  @UI.facet: [{
+    type: #IDENTIFICATION_REFERENCE, position: 10, id: 'SItemU_02', label: 'Item'},
+
+    { type: #FIELDGROUP_REFERENCE, position: 10, targetQualifier: 'BasicInfo', parentId: 'SItemU_02',
+    isSummary:true, isPartOfPreview: true }
+
+    ]
+
+  @UI: {
+
+  lineItem: [{ position: 10, label: 'Number', importance: #HIGH}],
+  identification: [{ position: 10, label: 'Number' }],
+  fieldGroup: [{ qualifier: 'ItemDetail', position: 10, importance: #HIGH }]
+  }
+  so_id;
+
+  @UI: {
+  lineItem: [{ position: 20, label: 'Position', importance: #HIGH}],
+
+  identification: [{ position: 20, label: 'Position' }],
+  fieldGroup: [{ qualifier: 'ItemDetail', position: 20, importance: #HIGH }]
+  }
+  so_item;
+
+  @UI: {
+
+  lineItem: [{ position: 30, label: 'material', importance: #HIGH}],
+
+  identification: [{ position: 30, label: 'material' }],
+  fieldGroup: [{ qualifier: 'ItemDetail', position: 30, importance: #HIGH }]
+
+  }
+  matnr;
+
+  @UI : {
+
+  lineItem: [{ position: 50, label: 'Quantity', importance: #HIGH}],
+
+  identification: [{ position: 50, label: 'Quantity' }],
+  fieldGroup: [{ qualifier: 'ItemDetail', position: 50, importance: #HIGH }]
+
+  }
+  quan;
+  @UI: {
+
+  lineItem: [{ position: 60, label: 'Unit Price', importance: #HIGH}],
+
+  identification: [{ position: 60, label: 'Unit Price' }],
+  fieldGroup: [{ qualifier: 'ItemDetail', position: 60, importance: #HIGH }]
+
+  }
+  price;
+}

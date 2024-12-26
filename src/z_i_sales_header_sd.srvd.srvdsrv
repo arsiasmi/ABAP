@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Defeinition'
+define service Z_I_SALES_HEADER_SD {
+  expose z_i_sales_header;
+  expose ZCL_ORDER_ITEM_CDS_01;
+}

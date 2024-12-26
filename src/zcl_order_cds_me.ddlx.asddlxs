@@ -1,45 +1,74 @@
 @Metadata.layer: #CORE
-annotate view zcl_order_cds with
+@UI:{
+headerInfo:{
+typeName: 'Sales Document',
+typeImageUrl: 'Sales Documents',
+
+title: { type:#STANDARD, label: 'Sales Order', value: 'so_id' },
+description: {  label: 'Date Created', value: 'created_on' }
+
+}
+ }
+annotate view z_i_sales_header with
+
+//zcl_order_cds with
 {
-  @UI.facet: [{ purpose: #STANDARD , label: 'Order ID', type: #IDENTIFICATION_REFERENCE , position: 10 }]
-  @UI.selectionField: [{ position: 10 }]
-  @UI.lineItem: [{ position: 10 }]
-  @UI.identification: [{ position: 10 }]
-  @EndUserText.label: 'Order ID'
+
+
+
+  @UI:{facet: [{id: 'General', type: #IDENTIFICATION_REFERENCE , position: 10, label: 'Sales Order'},
+   {type: #FIELDGROUP_REFERENCE, position: 10, targetQualifier: 'BasicInfo', parentId: 'General', isSummary: true, isPartOfPreview: true },
+   { id: 'Item', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Item', position: 10, targetElement: '_itm' }]
+  }
+
+  @UI:{
+  selectionField: [{ position: 10 }],
+  lineItem: [{ position: 10, label: 'Order Number', importance: #HIGH,targetElement: '_itm.so_id' }],
+  identification: [{ position: 10 }],
+  fieldGroup: [{ qualifier: 'General', position: 10, importance: #HIGH }]}
   so_id;
-  @UI.selectionField: [{ position: 20 }]
-  @UI.lineItem: [{ position: 20 }]
-  @UI.identification: [{ position: 20 }]
-  @EndUserText.label: 'Description'
+
+  @UI:{
+  selectionField: [{ position: 20 }],
+  lineItem: [{ position: 20, label: 'Description', importance: #HIGH }],
+  identification: [{ position: 20, label: 'Description' }],
+  fieldGroup: [{ qualifier: 'General', position: 20, importance: #HIGH }]
+  }
   name;
-  @UI.selectionField: [{ position: 30 }]
-  @UI.lineItem: [{ position: 30 }]
-  @UI.identification: [{ position: 30 }]
-  @EndUserText.label: 'Category'
+  @UI:{
+  selectionField: [{ position: 30 }],
+  lineItem: [{ position: 30, label: 'Category', importance: #HIGH }],
+  identification: [{ position: 30, label: 'Category' }],
+  fieldGroup: [{ qualifier: 'BasicInfo', position: 30, importance: #HIGH }]
+  }
   doc_cat;
-//  @UI.selectionField: [{ position: 40 }]
-  @UI.lineItem: [{ position: 40 }]
-  @UI.identification: [{ position: 40 }]
-  @EndUserText.label: 'Type'
+  //  @UI.selectionField: [{ position: 40 }]
+  @UI.lineItem: [{ position: 40, label: 'Type', importance: #HIGH  }]
+  @UI.identification: [{ position: 40, label: 'Type' }]
+  @UI.fieldGroup: [{ qualifier: 'BasicInfo', position: 40, importance: #HIGH }]
   doc_type;
-//  @UI.selectionField: [{ position: 50 }]
-  @UI.lineItem: [{ position:50 }]
-  @UI.identification: [{ position: 50 }]
-  @EndUserText.label: 'Amount'
+
+  //  @UI.selectionField: [{ position: 50 }]
+  @UI.lineItem: [{ position:50,label: 'Amount', importance: #HIGH }]
+  @UI.identification: [{ position: 50 , label: 'Amount'}]
+  @UI.fieldGroup: [{ qualifier: 'BasicInfo', position: 50, importance: #HIGH }]
+
   amount;
-//  @UI.selectionField: [{ position: 60 }]
-  @UI.lineItem: [{ position: 60 }]
-  @UI.identification: [{ position: 60 }]
+  //  @UI.selectionField: [{ position: 60 }]!
+  @UI.lineItem: [{ position: 60,label: 'Currency', importance: #HIGH  }]
+  @UI.identification: [{ position: 60,label: 'Currency' }]
+  @UI.fieldGroup: [{ qualifier: 'BasicInfo', position: 60, importance: #HIGH }]
   @EndUserText.label: 'Currency'
   d_currency;
-//  @UI.selectionField: [{ position: 70 }]
-  @UI.lineItem: [{ position: 70 }]
-  @UI.identification: [{ position: 70 }]
-  @EndUserText.label: 'Created By'
+  //  @UI.selectionField: [{ position: 70 }]
+  @UI.lineItem: [{ position: 60,label: 'Created By', importance: #HIGH }]
+  @UI.identification: [{ position: 60, label: 'Created By' }]
+  @UI.fieldGroup: [{ qualifier: 'DetailInfo', position: 70, importance: #HIGH }]
   created_by;
-//  @UI.selectionField: [{ position: 80 }]
-  @UI.lineItem: [{ position: 80 }]
-  @UI.identification: [{ position: 80 }]
-  @EndUserText.label: 'Created On'
+  //  @UI.selectionField: [{ position: 80 }]
+  @UI.lineItem: [{ position: 60,label: 'Created On', importance: #HIGH }]
+  @UI.identification: [{ position: 60,label: 'Created On' }]
+  @UI.fieldGroup: [{ qualifier: 'DetailInfo', position: 80, importance: #HIGH }]
+
   created_on;
 }

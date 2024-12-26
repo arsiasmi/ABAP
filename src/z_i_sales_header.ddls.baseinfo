@@ -3,11 +3,11 @@
 {
 "FROM":
 [
-"ZCL_ORDER_T"
+"ZCL_ORDER_CDS"
 ],
 "ASSOCIATED":
 [
-"ZTBL_PO_ITEM"
+"ZCL_ORDER_ITEM_CDS_01"
 ],
 "BASE":
 [],

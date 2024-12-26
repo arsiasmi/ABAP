@@ -3,11 +3,11 @@
 {
 "FROM":
 [
-"ZCL_ORDER_T"
+"ZI_SALES_ITEM_01"
 ],
 "ASSOCIATED":
 [
-"ZTBL_PO_ITEM"
+"Z_I_SALES_HEADER"
 ],
 "BASE":
 [],

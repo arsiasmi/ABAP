@@ -1,0 +1,27 @@
+unmanaged implementation in class zbp_i_sales_header unique;
+//strict ( 2 );
+
+define behavior for z_i_sales_header //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) so_id;
+  association _itm { create; }
+}
+
+define behavior for ZCL_ORDER_ITEM_CDS_01 //alias <alias_name>
+//late numbering
+lock dependent by _hdr
+authorization dependent by _hdr
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) so_id, so_item;
+  association _hdr;
+}
