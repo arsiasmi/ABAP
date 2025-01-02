@@ -1,0 +1,43 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "job",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "catalogName": "ZCATALOG_JOB02"
+  },
+  "parameters": {
+    "singleValueParameters": [
+      {
+        "name": "R_LAND",
+        "value": "X"
+      },
+      {
+        "name": "R_TEXT",
+        "value": ""
+      },
+      {
+        "name": "TEST",
+        "value": "X"
+      },
+      {
+        "name": "TEXT",
+        "value": "Test 01"
+      }
+    ],
+    "valueRangesParameters": [
+      {
+        "name": "COUNTRY",
+        "valueRanges": [
+          {
+            "sign": "include",
+            "option": "equals",
+            "low": "IN"
+          }
+        ]
+      }
+    ]
+  }
+}

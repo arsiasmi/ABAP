@@ -1,0 +1,143 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Travel',
+    typeNamePlural: 'Travels',
+    title: {
+        value: 'TravelId'   },
+    description: {
+        value: 'CustomerId'}
+}
+
+@UI.presentationVariant: [{ sortOrder: [{ by: 'LocalLastChangedAt', direction: #DESC }],
+visualizations: [{ type: #AS_LINEITEM }] }]
+
+annotate view ZATS_XX_TRAVEL_CDS with
+{
+
+  @UI.facet: [
+  { id: 'TrvlHdrPrice',
+  purpose: #HEADER,
+  type: #DATAPOINT_REFERENCE,
+  position: 10,
+  targetQualifier: 'PriceData' },
+
+  { id: 'TrvlHdrStatus',
+  purpose: #HEADER,
+  type: #DATAPOINT_REFERENCE,
+  position: 20,
+  targetQualifier: 'StatusData' },
+
+  { id: 'TrvlHdrGenInfo',
+  type: #COLLECTION,
+  label: 'General Info',
+  position: 10
+   },
+
+  { id: 'TrvlHdrGenData',
+  type: #IDENTIFICATION_REFERENCE,
+  purpose: #STANDARD,
+  position: 10,
+  label: 'General Data',
+  parentId: 'TrvlHdrGenInfo'},
+
+  { id: 'TrvlDates',
+  type: #FIELDGROUP_REFERENCE,
+  purpose: #STANDARD,
+  position: 20,
+  label: 'Dates',
+  parentId: 'TrvlHdrGenInfo',
+  targetQualifier: 'DatesGroup'},
+
+  { id: 'TrvlPrice',
+  type: #FIELDGROUP_REFERENCE,
+  purpose: #STANDARD,
+  position: 30,
+  label: 'Price',
+  parentId: 'TrvlHdrGenInfo',
+  targetQualifier: 'PriceGroup'},
+
+  { id: 'TrvlLog',
+  type: #FIELDGROUP_REFERENCE,
+  purpose: #STANDARD,
+  position: 40,
+  label: 'Change Log',
+  parentId: 'TrvlHdrGenInfo',
+  targetQualifier: 'LogGroup'}]
+
+  @UI:{ selectionField: [{ position: 10 }],
+  lineItem: [{ position: 10, label: 'Travel ID', importance: #HIGH }],
+  identification: [{ position: 10 }] }
+  TravelId;
+
+  @Consumption.valueHelpDefinition: [{ entity: {
+      name: '/dmo/i_agency',
+      element: 'AgencyId'
+  } }]
+  @UI:{ selectionField: [{ position: 20 }],
+  lineItem: [{ position: 20, label: 'Agency', importance: #HIGH }],
+  identification: [{ position: 20 }],
+  textArrangement: #TEXT_FIRST }
+  AgencyId;
+
+  @Consumption.valueHelpDefinition: [{ entity: {
+  name: '/dmo/i_customer',
+  element: 'CustomerId'
+  } }]
+  @UI:{ selectionField: [{ position: 30 }],
+  lineItem: [{ position: 30, label: 'Customer', importance: #HIGH }],
+  identification: [{ position: 30 }] }
+  CustomerId;
+
+
+  @UI:{ lineItem: [{ position: 40, label: 'Begin Date', importance: #HIGH }],
+  fieldGroup: [{ position: 10, qualifier: 'DatesGroup' }] }
+  BeginDate;
+
+  @UI:{lineItem: [{ position: 50, label: 'End Date', importance: #HIGH }],
+  fieldGroup: [{ position:20, qualifier: 'DatesGroup' }] }
+  EndDate;
+
+  @UI:{ lineItem: [{ position: 60, label: 'Booking Fee', importance: #MEDIUM }],
+  fieldGroup: [{ position: 10, qualifier: 'PriceGroup' }]}
+  BookingFee;
+
+  @UI:{ lineItem: [{ position: 70, label: 'Price', importance: #MEDIUM }],
+  fieldGroup: [{ position: 20, qualifier: 'PriceGroup' }],
+  dataPoint: { qualifier: 'PriceData' , title: 'Pricing' }  }
+  TotalPrice;
+
+  @UI:{lineItem: [{ position: 80, label: 'Currency', importance: #MEDIUM }],
+  fieldGroup: [{ position: 30, qualifier: 'PriceGroup' }]  }
+  CurrencyCode;
+
+  //  @UI:{ lineItem: [{ position: 11 }] }
+  //  Description;
+
+  @Consumption.valueHelpDefinition: [{ entity: {
+  name: '/DMO/I_Travel_Status_VH',
+  element: 'TravelStatus'
+  } }]
+  @UI:{ selectionField: [{ position: 90 }],textArrangement: #TEXT_ONLY,
+  lineItem: [{ position: 90, label: 'Status', importance: #HIGH }],
+  identification: [{ position: 40 }],
+  dataPoint: { qualifier: 'StatusData' , title: 'Status'  }  }
+  Status;
+
+  //  @UI:{ selectionField: [{ position: 100 } ], textArrangement: #TEXT_ONLY,
+  //  lineItem: [{ position: 100 }],
+  //  identification: [{ position: 40 }],
+  //  dataPoint: { qualifier: 'StatusData' , title: 'Status' }  }
+  //  TravelStatus;
+  @UI:{lineItem: [{ position: 10 }],
+  fieldGroup: [{ position: 10, qualifier: 'LogGroup' }] }
+  LocalCreatedBy;
+  @UI:{ lineItem: [{ position: 10 }],
+  fieldGroup: [{ position: 20, qualifier: 'LogGroup' }] }
+  LocalCreatedAt;
+  @UI:{ lineItem: [{ position: 10 }],
+  fieldGroup: [{ position: 30, qualifier: 'LogGroup' }] }
+  LocalLastChangedBy;
+  @UI:{ lineItem: [{ position: 100, label: 'Time Stamp', importance: #LOW }],
+  fieldGroup: [{ position: 40, qualifier: 'LogGroup' }] }
+  LocalLastChangedAt;
+}

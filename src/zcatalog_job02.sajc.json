@@ -1,0 +1,28 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Job Catalog",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "className": "ZYTEST"
+  },
+  "parameters": [
+    {
+      "name": "TEXT"
+    },
+    {
+      "name": "COUNTRY"
+    },
+    {
+      "name": "R_TEXT"
+    },
+    {
+      "name": "R_LAND"
+    },
+    {
+      "name": "TEST"
+    }
+  ]
+}

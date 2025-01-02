@@ -1,0 +1,8 @@
+@EndUserText.label: 'Travel Service Definition'
+define service ZATS_XX_TRAVEL_SD {
+  expose ZATS_XX_TRAVEL_CDS      as Travel;
+  expose I_Currency              as Currency;
+  expose /DMO/I_Agency           as Agency;
+  expose /DMO/I_Customer         as Customer;
+  expose /DMO/I_Travel_Status_VH as TravelStatus;
+}

@@ -1,0 +1,30 @@
+unmanaged implementation in class zbp_ats_xx_travel_cds unique;
+strict;
+
+define behavior for ZATS_XX_TRAVEL_CDS alias Travel
+//late numbering
+lock master
+authorization master ( global )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) TravelId;
+  field ( mandatory : create) BookingFee, AgencyId, CustomerId, CurrencyCode;
+
+  mapping for /dmo/travel control /dmo/s_travel_intx
+    {
+      AgencyId           = agency_id;
+      BeginDate          = begin_date;
+      BookingFee         = booking_fee;
+      CurrencyCode       = currency_code;
+      CustomerId         = customer_id;
+      EndDate            = end_date;
+      LocalLastChangedAt = lastchangedat;
+      LocalLastChangedBy = lastchangedby;
+      TotalPrice         = total_price;
+      Description        = description;
+    }
+
+}

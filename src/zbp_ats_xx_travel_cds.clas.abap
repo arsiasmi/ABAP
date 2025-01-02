@@ -1,0 +1,5 @@
+CLASS zbp_ats_xx_travel_cds DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zats_xx_travel_cds.
+ENDCLASS.
+
+CLASS zbp_ats_xx_travel_cds IMPLEMENTATION.
+ENDCLASS.
